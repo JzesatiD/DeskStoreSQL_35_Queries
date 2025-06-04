@@ -3,13 +3,13 @@
 ## 1. List all States with more than 2 customers per state
 
 
-**SELECT** CustomerState, COUNT(*)
+1. **SELECT** CustomerState, COUNT(*)
 
-**FROM** Customer_T
+2. **FROM** Customer_T
 
-**GROUP BY** CustomerState
+3. **GROUP BY** CustomerState
 
-**HAVING** COUNT(*) > 2;
+4. **HAVING** COUNT(*) > 2;
 
 
 
