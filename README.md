@@ -27,8 +27,7 @@ This project showcases 37 SQL queries written against a sample database of 4 tab
 - `OrderLine_T`
 - `Product_T`
 
-### 📁 01-customer-insights.md
-Understand customer behavior, location trends, and engagement.
+### 01-customer-insights.md
 
 List all States with more than 2 customers per state
 
@@ -50,10 +49,9 @@ Retrieve names and states of customers that have placed orders and are not in CA
 
 Display names of Florida customers with more than one order
 
-🧠 Use for customer segmentation, targeting, and identifying under/over-engaged customers.
+✅ Count so far: 10 / 37
 
 ### 📁 02-order-analysis.md
-Explore order characteristics, structure, and high-value thresholds.
 
 Display Order ID and the total amount of each order
 
@@ -65,16 +63,11 @@ List total dollar amount for each order that includes Coffee Table
 
 Create invoice for orders more than $2000, sorted by OrderID
 
-What are the customer states and their order IDs for orders with products over avg price?
-
-For orders placed by FL customers or including Cherry finish, show order ID, name, state, and total
-
 For the most expensive products, display the order ID and customer name
 
-🧠 Use for invoice reporting, high-value order targeting, and cross-product analysis.
+✅ Running total: 16 / 37
 
 ### 📁 03-product-performance.md
-Measure product demand, pricing, and sales velocity.
 
 Display average standard price for every product finish
 
@@ -86,18 +79,13 @@ List product ID, description, and price of underpriced products ordered more tha
 
 Display the ProductFinish of products that appear in 3 or more orders
 
-Show description and total quantity of products with >3 quantity ordered and price > avg of product lines 1 & 2
-
 What quantity of each product finish has been ordered by customers whose postal code starts with 9 or ends with 4?
 
-🧠 Use for inventory restocking, sales campaigns, or product bundling.
+✅ Running total: 22 / 37
 
 ### 📁 04-sales-value-metrics.md
-Track customer spend, product revenue, and order-level metrics.
 
 Retrieve the Product IDs and the total cost of each product in Order 1001
-
-Display order IDs and total amount of each order (duplicate prompt)
 
 List Customer names and total amount spent per customer
 
@@ -107,18 +95,11 @@ Show customers with two or more orders
 
 Retrieve customer ID and name that purchased products below average price
 
-Total sales for orders including expensive products (via EXISTS or comparison)
+What are the customer states and their order IDs for orders with products over avg price?
 
-🧠 Use to identify top spenders, optimize cross-selling, and understand sales distribution.
+✅ Running total: 28 / 37
 
 ### 📁 05-subqueries-and-exists.md
-Demonstrate advanced SQL logic using subqueries and EXISTS clauses.
-
-List product ID, description, and price for products with < avg standard price
-
-List product ID, description, and price for products with < avg standard price AND ordered more than once
-
-List customer ID and name that bought products < avg standard price
 
 Customers that ordered “Natural Ash” finish and live outside CA (EXISTS)
 
@@ -128,12 +109,11 @@ Customers who ordered “Natural Ash” and live outside CA (EXISTS)
 
 List customers who didn’t order or are in TX
 
-Customers who ordered products < avg price or live outside NY, NJ, TX (EXISTS)
+Show description and total quantity of products with >3 quantity ordered and price > avg of product lines 1 & 2
 
-🧠 Use for smart filtering, edge case detection, and advanced reporting filters.
+✅ Running total: 33 / 37
 
 ### 📁 06-conditional-analysis.md
-Apply conditional logic using WHERE, HAVING, and multi-state filters.
 
 Names and addresses of Florida customers with total orders > $2000
 
@@ -141,18 +121,17 @@ Names of Florida customers with more than one order
 
 For customers with one or more orders, display names and number of orders (JOINs)
 
-For customers with < 2 orders outside CA and FL, show names and order count
+Customers from FL or who ordered Cherry finish: retrieve order IDs, names, states, and order total
 
-Quantity of product finish ordered by customers whose postal code starts with 9 or ends with 4
+✅ Final Total: 37 / 37
 
-🧠 Use for filtering edge groups, analyzing niche patterns, and developing location-based strategies.
-
-### 📦 Summary Table of File Assignments
-Category	# of Questions
+✅ Summary
+Category	Count
 01-customer-insights.md	10
-02-order-analysis.md	8
-03-product-performance.md	7
-04-sales-value-metrics.md	7
-05-subqueries-and-exists.md	8
-06-conditional-analysis.md	5
+02-order-analysis.md	6
+03-product-performance.md	6
+04-sales-value-metrics.md	6
+05-subqueries-and-exists.md	5
+06-conditional-analysis.md	4
+Total	37 ✅
 
