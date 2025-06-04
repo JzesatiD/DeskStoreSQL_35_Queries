@@ -27,7 +27,7 @@ This project showcases 37 SQL queries written against a sample database of 4 tab
 - `OrderLine_T`
 - `Product_T`
 
-01-customer-insights.md
+### 📁 01-customer-insights.md
 Understand customer behavior, location trends, and engagement.
 
 List all States with more than 2 customers per state
@@ -52,7 +52,7 @@ Display names of Florida customers with more than one order
 
 🧠 Use for customer segmentation, targeting, and identifying under/over-engaged customers.
 
-📁 02-order-analysis.md
+### 📁 02-order-analysis.md
 Explore order characteristics, structure, and high-value thresholds.
 
 Display Order ID and the total amount of each order
@@ -73,7 +73,7 @@ For the most expensive products, display the order ID and customer name
 
 🧠 Use for invoice reporting, high-value order targeting, and cross-product analysis.
 
-📁 03-product-performance.md
+### 📁 03-product-performance.md
 Measure product demand, pricing, and sales velocity.
 
 Display average standard price for every product finish
@@ -92,7 +92,7 @@ What quantity of each product finish has been ordered by customers whose postal 
 
 🧠 Use for inventory restocking, sales campaigns, or product bundling.
 
-📁 04-sales-value-metrics.md
+### 📁 04-sales-value-metrics.md
 Track customer spend, product revenue, and order-level metrics.
 
 Retrieve the Product IDs and the total cost of each product in Order 1001
@@ -111,7 +111,7 @@ Total sales for orders including expensive products (via EXISTS or comparison)
 
 🧠 Use to identify top spenders, optimize cross-selling, and understand sales distribution.
 
-📁 05-subqueries-and-exists.md
+### 📁 05-subqueries-and-exists.md
 Demonstrate advanced SQL logic using subqueries and EXISTS clauses.
 
 List product ID, description, and price for products with < avg standard price
@@ -132,7 +132,7 @@ Customers who ordered products < avg price or live outside NY, NJ, TX (EXISTS)
 
 🧠 Use for smart filtering, edge case detection, and advanced reporting filters.
 
-📁 06-conditional-analysis.md
+### 📁 06-conditional-analysis.md
 Apply conditional logic using WHERE, HAVING, and multi-state filters.
 
 Names and addresses of Florida customers with total orders > $2000
@@ -147,7 +147,7 @@ Quantity of product finish ordered by customers whose postal code starts with 9 
 
 🧠 Use for filtering edge groups, analyzing niche patterns, and developing location-based strategies.
 
-📦 Summary Table of File Assignments
+### 📦 Summary Table of File Assignments
 Category	# of Questions
 01-customer-insights.md	10
 02-order-analysis.md	8
