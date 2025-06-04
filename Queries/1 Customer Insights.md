@@ -5,11 +5,11 @@
 
 **SELECT** CustomerState, COUNT(*)
 
-**FROM** Customer_T 
+**FROM** Customer_T
 
 **GROUP BY** CustomerState
 
-**HAVING COUNT**(*) > 2;
+**HAVING** COUNT(*) > 2;
 
 
 
