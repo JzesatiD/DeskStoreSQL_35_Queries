@@ -10,8 +10,8 @@
 
 This project showcases 35 SQL queries written against a sample database of 4 tables. Each query solves a practical business question, using joins, aggregation, filtering, and advanced SQL features.
 
-## 🗂️ Table of Contents
-
+## ERD (Entity Relationship Diagram) 
+![ERD](https://github.com/JzesatiD/DeskStoreSQL_35_Queries/blob/main/assets/furniturestoreERD.png?raw=true)
 
 ### 📁 01-customer-insights.md
 
