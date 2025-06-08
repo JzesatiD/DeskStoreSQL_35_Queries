@@ -33,10 +33,60 @@ Advanced Filtering and Segmentation: Using subqueries and conditional logic, the
 
 ### Technical (SQL) Insights:
 
-I look at a SQL question in sections:
-1. General the display, filter/condition (records), Grouping, Source, and hints of a subquery
-2. 
+It is helpful to think of a query request as broken down into its components
+A typical query is in the form of: 
+_Display... Source... (GROUP)... Conditional_
 
+For example: Show all orders from customers that are located in Texas
+
+Display: 
+  **SELECT** OrderID
+
+All action words, such as "retrieve," "list," and "show," etc. 
+
+Source: 
+**FROM**: Customer_Table, Order_Table ... 
+
+Usually intuitive or comes easily from being familiar with the database
+
+We know that records of orders are in the order table, and customer data live in the designated customer table
+
+GROUP: Explicit groups that require GROUP BY clause are sometimes distinguishable from
+keywords such as 'for each' or 'per'
+
+Our implicit group is the customers who placed orders but this does not require a GROUP BY
+_See later on cases where this clause is required.
+
+Conditional:
+**WHERE** CustomerState = 'TX' 
+
+Common language: that __ , whose __, that include(s) ___, contain ___, a part / not a part of ___, with ___, more than/ less than ___
+
+The condition or filter component is often the most challenging. 
+This is because we have 3+ ways of applying filters (in order of least complex)
+A. Filtering by records using WHERE clause
+B. Filtering by groups using HAVING clause
+C. Utilizing Subqueries and operators such as EXISTS
+_(see more on this later)_
+
+With experience, one can distinguish common keywords or scenarios that provide cues of the necessity to implement logic operators, comparison operators, JOIN operators, and even subquery. 
+
+### Technical Observations:
+1. A GROUP BY clause is required after the use of an AGGREGATE (ex. MAX, MIN, COUNT) in the SELECT clause
+2. Aggregates in their natural form, can not be used in the WHERE clause. From the perspective of syntax, they must live in the HAVING clause since creating them in the SELECT results in a group.
+3. A subquery can be used to bypass the need for a JOIN
+4. Sometimes, a subquery is required just for an aggregate to compare records because an aggregate can not be present in the WHERE clause in its natural form (see observation #2)
+5. In a bind while working with subqueries, we can use a GROUP BY clause just as a precursor to using a HAVING clause for filtering.
+6. In this dataset, customer data and product data are on opposite ends of the ERD. Thus, a question or query request that involves both will require joining all tables.
+7. It can be challenging to know during the 1st attempt of a query if a DISTINCT operator will be necessary. You probably can not go wrong with adding one whenever an aggregate is not present in the SELECT clause. In addition, being familiar with a handful of the records of the situational tables can also help.
+8. A general tip, having a physical copy of the first ~10 records of all tables will go a long way 
+  
+### Compound Subqueries. 
+Be sure to pace yourself with these types of problems and analyze the keywords from earlier.
+'... with... that have' ==> compound subquery
+we're thinking of comparing all records to these selected conditions ==> ask yourself if that is the case. 
+which are separate from the display request
+==> ask yourself are the components of the SELECT clause are compatible with the filtering I need to achieve in the WHERE clause (or at the records level). 
 
 ### Summary
 By leveraging SQL to model real business questions, this analysis demonstrated how raw transactional data can be transformed into decision-ready insights. Each query went beyond syntax — it addressed a tangible operational, sales, or marketing need. The process reflects what data analysts do in real-world roles: not just retrieve data, but uncover what matters and why it matters to the business.
