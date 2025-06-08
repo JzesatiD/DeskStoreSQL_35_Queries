@@ -1,22 +1,14 @@
-# Furniture Store: 35 SQL Requests
-35 explained SQL queries from Furniture Store database that sells primarily desks and tables in the United States. 
-
-- 01-customer-insights
-- 02-order-analysis
-- 03-product-performance
-- 04-sales-value-metrics
-- 05-subqueries-and-exists
-- 06-conditional-analysis
-
-This project showcases 35 SQL queries written against a sample database of 4 tables. Each query solves a practical business question, using joins, aggregation, filtering, and advanced SQL features.
+# <center>Furniture Store: 35 SQL Requests</center>
+This analysis of 35 queries leveraged SQL as the primary tool to explore a relational database representing a furniture store’s operations. SQL's power to perform complex joins, filtering, group-based aggregation, and subqueries made it ideal for answering layered business questions drawn from customer, order, product, and sales data.
 
 ## ERD (Entity Relationship Diagram) 
 ![ERD](https://github.com/JzesatiD/DeskStoreSQL_35_Queries/blob/main/assets/furniturestoreERD.png?raw=true)
 
-### Why SQL Was Used for This Analysis
-This analysis leveraged SQL as the primary tool to explore a relational database representing a furniture store’s operations. SQL's power to perform complex joins, filtering, group-based aggregation, and subqueries made it ideal for answering layered business questions drawn from customer, order, product, and sales data.
+## <center>Analysis</center>
 
-SQL enabled structured interrogation of the data to reveal insights across multiple levels of the business — from regional customer activity and order composition, to product demand patterns and revenue concentration. The language’s flexibility in combining data across multiple related tables (Customer, Order, OrderLine, Product) allowed for targeted business questions to be answered with clarity and precision.
+### Why SQL Was Used for This Analysis
+
+SQL enabled structured interrogation of the data to reveal insights across multiple levels of the business - from regional customer activity and order composition, to product demand patterns and revenue concentration. The language’s flexibility in combining data across multiple related tables (Customer, Order, OrderLine, Product) allowed for targeted business questions to be answered with clarity and precision.
 
 ### Business Insights Discovered
 Through the use of SQL, several strategic findings were uncovered:
@@ -31,65 +23,82 @@ Revenue and Sales Metrics: Customer-level spend aggregation and per-order cost a
 
 Advanced Filtering and Segmentation: Using subqueries and conditional logic, the analysis could surface nuanced customer groups — such as those who ordered premium products but reside outside major states, or those who have lapsed in engagement. These refined cohorts are critical for targeted campaign development.
 
-### Technical (SQL) Insights:
+## <center>Technical (SQL) Insights:</center>
 
-It is helpful to think of a query request as broken down into its components
-A typical query is in the form of: 
-_Display... Source... (GROUP)... Conditional_
+It is helpful to think of a query request as broken down into its components and analyizing the language.
+A typical query is in the form of:
 
-For example: Show all orders from customers that are located in Texas
+_Display... Source... (GROUP)... Conditional..._
 
-Display: 
+<center>Example: Show all orders from customers that are located in Texas</center>
+&emsp;
+
+**Display** → 
   **SELECT** OrderID
 
 All action words, such as "retrieve," "list," and "show," etc. 
 
-Source: 
-**FROM**: Customer_Table, Order_Table ... 
+**Source** →
+**FROM**: Customer_Table, Order_Table ...<br> 
+_See later on cases where this clause is required._
 
-Usually intuitive or comes easily from being familiar with the database
-
+Usually intuitive or comes easily from being familiar with the database.
 We know that records of orders are in the order table, and customer data live in the designated customer table
 
-GROUP: Explicit groups that require GROUP BY clause are sometimes distinguishable from
-keywords such as 'for each' or 'per'
+**GROUP** → Explicit groups that require **GROUP BY** clause are sometimes distinguishable from keywords such as 'for each' or 'per'.
 
-Our implicit group is the customers who placed orders but this does not require a GROUP BY
-_See later on cases where this clause is required.
+Our implicit group is the customers who placed orders but this does not require a **GROUP BY**<br> _See later on cases where this clause is required._
 
-Conditional:
-**WHERE** CustomerState = 'TX' 
+**Conditional** → **WHERE** CustomerState = 'TX' 
 
-Common language: that __ , whose __, that include(s) ___, contain ___, a part / not a part of ___, with ___, more than/ less than ___
+Common language: that __ , whose __ , that include(s) ___ , contain(s) ___ , a part / not a part of ___ , with ___ , more than/ less than ___ , etc. 
 
-The condition or filter component is often the most challenging. 
-This is because we have 3+ ways of applying filters (in order of least complex)
-A. Filtering by records using WHERE clause
-B. Filtering by groups using HAVING clause
+The condition or filter component is often the most challenging to get right the first time. 
+This is because there are at least 3 methods for applying filters to look out for <br> (in order of least complex)<br>
+
+A. Filtering by records using WHERE clause<br>
+B. Filtering by groups using HAVING clause<br>
 C. Utilizing Subqueries and operators such as EXISTS
 _(see more on this later)_
 
-With experience, one can distinguish common keywords or scenarios that provide cues of the necessity to implement logic operators, comparison operators, JOIN operators, and even subquery. 
+With experience, one can distinguish common keywords or scenarios that provide cues to the necessity of implementing logic operators, comparison operators, JOIN operators, and even subquery. 
 
 ### Technical Observations:
-1. A GROUP BY clause is required after the use of an AGGREGATE (ex. MAX, MIN, COUNT) in the SELECT clause
-2. Aggregates in their natural form, can not be used in the WHERE clause. From the perspective of syntax, they must live in the HAVING clause since creating them in the SELECT results in a group.
-3. A subquery can be used to bypass the need for a JOIN
-4. Sometimes, a subquery is required just for an aggregate to compare records because an aggregate can not be present in the WHERE clause in its natural form (see observation #2)
-5. In a bind while working with subqueries, we can use a GROUP BY clause just as a precursor to using a HAVING clause for filtering.
-6. In this dataset, customer data and product data are on opposite ends of the ERD. Thus, a question or query request that involves both will require joining all tables.
-7. It can be challenging to know during the 1st attempt of a query if a DISTINCT operator will be necessary. You probably can not go wrong with adding one whenever an aggregate is not present in the SELECT clause. In addition, being familiar with a handful of the records of the situational tables can also help.
-8. A general tip, having a physical copy of the first ~10 records of all tables will go a long way 
+1. A general tip, having a physical copy of the first 10 or so records of all tables will go a long way
+2. A GROUP BY clause is required after the use of an AGGREGATE (ex. MAX, MIN, COUNT) in the SELECT clause
+3. Aggregates in their natural form, can not be used in the WHERE clause. From the perspective of syntax, they must live in the HAVING clause since creating them in the SELECT results in a group
+4. A subquery can be used to bypass the need for an additional JOIN
+5. Sometimes, a subquery is required just for an aggregate to compare records because an aggregate can not be present in the WHERE clause in its natural form (see observation #2)
+6. In a bind while working with subqueries, we can use a GROUP BY clause just as a precursor for accessing a necessary HAVING clause for filtering
+7. In this dataset, customer data and product data are on opposite ends of the ERD. Thus, a question or query request that involves both will require joining all tables
+8. It can be challenging to know during the 1st attempt of a query if a DISTINCT operator will be necessary. You probably can not go wrong with adding one whenever an aggregate is not present in the SELECT clause. In addition, being familiar with a handful of the records of the tables can also help
+9. Outer joins can be helpful for including records that are not shared on both tables. Commonly with this dataset, we would like to include ALL customers in our Order analysis and an OUTER JOIN allows us to do this
+
+
   
-### Compound Subqueries. 
-Be sure to pace yourself with these types of problems and analyze the keywords from earlier.
-'... with... that have' ==> compound subquery
-we're thinking of comparing all records to these selected conditions ==> ask yourself if that is the case. 
-which are separate from the display request
-==> ask yourself are the components of the SELECT clause are compatible with the filtering I need to achieve in the WHERE clause (or at the records level). 
+### Compound Subqueries
+These are often the most challening scenarios. Be sure to pace yourself with these types of problems and analyze the keywords from earlier.<br>
+EXAMPLE: '___ with ___ that have' → Compound Subquery<br>
+
+
+1. Ask yourself are the components within the SELECT clause compatible with the conditional demands I am required to implement at the individual records level? This alone could be a clue that a subquery is needed when our analysis shows the display components are separate from our filtering needs.<br>
+_See above about nuances of the WHERE clause_<br>
+2. Do I need to implement an aggregate at my record or entry filtering stage? 
+3. Am I being asked to compare all records to the necessary conditions?
+
+This mindset along with the other insights could help you solve these cases. 
 
 ### Summary
 By leveraging SQL to model real business questions, this analysis demonstrated how raw transactional data can be transformed into decision-ready insights. Each query went beyond syntax — it addressed a tangible operational, sales, or marketing need. The process reflects what data analysts do in real-world roles: not just retrieve data, but uncover what matters and why it matters to the business.
+
+## Queries Folder
+
+- 01-customer-insights
+- 02-order-analysis
+- 03-product-performance
+- 04-sales-value-metrics
+- 05-subqueries-and-exists
+- 06-conditional-analysis
 
 ### 📁 01-customer-insights.md
 
@@ -182,4 +191,4 @@ Category	     &emsp;&emsp;&emsp;&emsp; Count
 5. subqueries-and-exists.md&emsp;&emsp;4
 6. conditional-analysis.md&emsp;&emsp;&emsp;5
 
-Total &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   35 
+Total &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  35 
