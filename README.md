@@ -31,6 +31,13 @@ Revenue and Sales Metrics: Customer-level spend aggregation and per-order cost a
 
 Advanced Filtering and Segmentation: Using subqueries and conditional logic, the analysis could surface nuanced customer groups — such as those who ordered premium products but reside outside major states, or those who have lapsed in engagement. These refined cohorts are critical for targeted campaign development.
 
+### Technical (SQL) Insights:
+
+I look at a SQL question in sections:
+1. General the display, filter/condition (records), Grouping, Source, and hints of a subquery
+2. 
+
+
 ### Summary
 By leveraging SQL to model real business questions, this analysis demonstrated how raw transactional data can be transformed into decision-ready insights. Each query went beyond syntax — it addressed a tangible operational, sales, or marketing need. The process reflects what data analysts do in real-world roles: not just retrieve data, but uncover what matters and why it matters to the business.
 
