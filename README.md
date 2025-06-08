@@ -13,6 +13,34 @@ This project showcases 35 SQL queries written against a sample database of 4 tab
 ## ERD (Entity Relationship Diagram) 
 ![ERD](https://github.com/JzesatiD/DeskStoreSQL_35_Queries/blob/main/assets/furniturestoreERD.png?raw=true)
 
+### Why SQL Was Used for This Analysis
+This analysis leveraged SQL as the primary tool to explore a relational database representing a furniture store’s operations. SQL's power to perform complex joins, filtering, group-based aggregation, and subqueries made it ideal for answering layered business questions drawn from customer, order, product, and sales data.
+
+SQL enabled structured interrogation of the data to reveal insights across multiple levels of the business — from regional customer activity and order composition, to product demand patterns and revenue concentration. The language’s flexibility in combining data across multiple related tables (Customer, Order, OrderLine, Product) allowed for targeted business questions to be answered with clarity and precision.
+
+### Business Insights Discovered
+Through the use of SQL, several strategic findings were uncovered:
+
+Customer Insights: Patterns emerged around where customers were concentrated, how engaged they were (based on order frequency), and which states showed untapped or declining activity. This surfaced opportunities for location-based re-engagement and more personalized outreach.
+
+Order Composition and Value: Orders were not only analyzed by volume and contents, but also by spend thresholds — identifying high-value orders, frequently bundled products, and customers contributing the most revenue. This has direct implications for loyalty programs and sales forecasting.
+
+Product Performance: SQL was instrumental in highlighting which product finishes were consistently lower or higher priced, and which products were most commonly ordered. These insights support pricing strategy, inventory planning, and marketing focus on best-sellers.
+
+Revenue and Sales Metrics: Customer-level spend aggregation and per-order cost analysis made it possible to pinpoint top customers and high-performing SKUs. These findings guide customer prioritization and can help align marketing with profitability.
+
+Advanced Filtering and Segmentation: Using subqueries and conditional logic, the analysis could surface nuanced customer groups — such as those who ordered premium products but reside outside major states, or those who have lapsed in engagement. These refined cohorts are critical for targeted campaign development.
+
+### Technical (SQL) Insights:
+
+I look at a SQL question in sections:
+1. General the display, filter/condition (records), Grouping, Source, and hints of a subquery
+2. 
+
+
+### Summary
+By leveraging SQL to model real business questions, this analysis demonstrated how raw transactional data can be transformed into decision-ready insights. Each query went beyond syntax — it addressed a tangible operational, sales, or marketing need. The process reflects what data analysts do in real-world roles: not just retrieve data, but uncover what matters and why it matters to the business.
+
 ### 📁 01-customer-insights.md
 
 1. List all States with more than 2 customers per state
@@ -44,7 +72,6 @@ This project showcases 35 SQL queries written against a sample database of 4 tab
 5. For orders more than $2000, create an invoice and show the total dollar amount of each order. Sort the result by orderID
 
 6. For the most expensive products, display the order ID and customer name
-
 
 ### 📁 03-product-performance.md
 
